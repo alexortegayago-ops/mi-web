@@ -3,171 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusMaster | Maximiza tu Productividad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>DeepFocus | Maximiza tu Potencial Cognitivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* CONFIGURACIÓN GENERAL */
         :root {
-            --primary: #4f46e5;
-            --secondary: #10b981;
-            --dark: #1f2937;
-            --light: #f3f4f6;
+            --accent: #6366f1; 
+            --bg: #0f172a;    
+            --card: #1e293b;
+            --text: #f8fafc;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
-            color: var(--dark);
-            background-color: #ffffff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* NAVEGACIÓN */
+        /* NAVEGACIÓN PROFESIONAL */
         nav {
-            background: white;
-            padding: 1rem 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
         }
 
-        nav .logo { font-weight: 700; color: var(--primary); font-size: 1.5rem; }
-        nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent); font-weight: bold; }
+        nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
 
-        /* SECCIÓN HERO (HERRAMIENTA) */
-        header {
-            padding: 80px 5%;
-            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+        /* HERO SECTION */
+        .hero {
+            padding: 120px 5% 80px;
             text-align: center;
+            background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 100%);
         }
 
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto 40px; }
+
+        /* TEMPORIZADOR */
         .timer-container {
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            background: var(--card);
+            padding: 60px;
+            border-radius: 50px;
             display: inline-block;
-            margin-top: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6);
         }
 
-        .timer-display { font-size: 5rem; font-weight: 700; color: var(--primary); margin: 20px 0; }
+        #timer { font-size: 7rem; font-weight: 700; margin-bottom: 30px; font-variant-numeric: tabular-nums; color: var(--text); }
 
-        /* SECCIÓN DE TEXTO / ARTÍCULOS */
-        .section { padding: 80px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
-        .card {
-            padding: 25px;
-            border-radius: 16px;
-            background: var(--light);
-            border: 1px solid #e5e7eb;
-        }
+        .btn-group { display: flex; gap: 15px; justify-content: center; }
+        .btn-primary { background: var(--accent); color: white; padding: 18px 45px; border-radius: 16px; border: none; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: 0.4s; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: #94a3b8; padding: 18px 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: 0.3s; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); color: white; }
 
-        .card h3 { color: var(--primary); }
+        /* SECCIÓN DE CARACTERÍSTICAS */
+        .features { padding: 100px 10%; background: #0f172a; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 15px; }
 
-        /* BOTONES */
-        .btn {
-            padding: 12px 25px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-main { background: var(--primary); color: white; }
-        .btn-main:hover { background: #4338ca; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-card { background: #131c2e; padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .feature-card h3 { color: var(--accent); font-size: 1.5rem; margin-top: 20px; }
+        .feature-card p { color: #94a3b8; font-size: 1rem; }
 
-        footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
+        /* FOOTER */
+        footer { padding: 60px 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); background: #0b1120; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 20px; display: block; }
+        .copyright { color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">FocusMaster</div>
-        <div>
-            <a href="#herramienta">Temporizador</a>
-            <a href="#tecnicas">Técnicas</a>
-            <a href="#recursos">Recursos</a>
+        <div class="logo">DeepFocus.</div>
+        <div class="nav-links">
+            <a href="#herramienta">Herramienta</a>
+            <a href="#metodologia">Metodología</a>
+            <a href="#beneficios">Beneficios</a>
         </div>
     </nav>
 
-    <header id="herramienta">
-        <h1>Tu tiempo es tu recurso más valioso</h1>
-        <p>Utiliza nuestra herramienta científica para entrar en estado de "Flow".</p>
+    <section class="hero" id="herramienta">
+        <h1>Diseñado para el Enfoque Profundo</h1>
+        <p>Elimina las distracciones digitales y recupera tu capacidad de concentración con nuestra interfaz optimizada para el rendimiento.</p>
         
         <div class="timer-container">
-            <div class="timer-display" id="timer">25:00</div>
-            <button class="btn btn-main" onclick="toggleTimer()" id="btnStart">Iniciar Sesión</button>
-            <button class="btn" onclick="resetTimer()">Reset</button>
-        </div>
-    </header>
-
-    <section class="section" id="tecnicas">
-        <h2 style="text-align: center;">Técnicas de Alto Rendimiento</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>La Regla de los 2 Minutos</h3>
-                <p>Si una tarea te lleva menos de dos minutos, hazla ahora. No la agendes, no la pienses. Esto libera carga mental instantáneamente.</p>
-            </div>
-            <div class="card">
-                <h3>Bloqueo de Tiempo</h3>
-                <p>Divide tu día en bloques específicos para una sola tarea. Evita el "multitasking", que reduce tu coeficiente intelectual efectivo en 10 puntos.</p>
-            </div>
-            <div class="card">
-                <h3>Comerse la Rana</h3>
-                <p>Haz la tarea más difícil y desagradable a primera hora de la mañana. El resto del día será mucho más ligero y productivo.</p>
+            <div id="timer">25:00</div>
+            <div class="btn-group">
+                <button class="btn-primary" onclick="toggleTimer()" id="mainBtn">Iniciar Sesión</button>
+                <button class="btn-secondary" onclick="resetTimer()">Reiniciar</button>
             </div>
         </div>
     </section>
 
-    <section class="section" id="recursos" style="background: #f9fafb;">
-        <h2>Recursos Recomendados</h2>
-        <p>Para potenciar este nicho, aquí podrías recomendar libros o apps:</p>
-        <ul>
-            <li><b>Libro:</b> "Hábitos Atómicos" de James Clear.</li>
-            <li><b>App:</b> Notion para organizar tus proyectos.</li>
-            <li><b>Música:</b> Lo-fi beats para concentrarse.</li>
-        </ul>
+    <section class="features" id="metodologia">
+        <div class="section-title">
+            <h2>Optimiza tu flujo de trabajo</h2>
+            <p style="color:#94a3b8;">Basado en principios de psicología cognitiva y alto rendimiento.</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div style="font-size: 2.5rem;">⏱️</div>
+                <h3>Técnica Pomodoro 2.0</h3>
+                <p>Ciclos de trabajo optimizados para prevenir la fatiga mental y mantener el pico de dopamina bajo control.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 2.5rem;">🌑</div>
+                <h3>Interfaz Minimalista</h3>
+                <p>Cero elementos disruptivos. Un diseño de alto contraste y baja fatiga visual para sesiones largas de estudio o programación.</p>
+            </div>
+            <div class="feature-card" id="beneficios">
+                <div style="font-size: 2.5rem;">📈</div>
+                <h3>Rendimiento Exponencial</h3>
+                <p>Protege tus bloques de tiempo. Reducir el cambio de contexto aumenta la productividad real hasta en un 40%.</p>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 FocusMaster - Mejora tu vida un minuto a la vez.</p>
+        <span class="footer-logo">DeepFocus.</span>
+        <p style="color:#94a3b8; max-width: 500px; margin: 0 auto 30px;">La herramienta definitiva para profesionales, estudiantes y creadores que buscan dominar su tiempo.</p>
+        <div class="copyright">
+            &copy; 2025 DeepFocus. Todos los derechos reservados.
+        </div>
     </footer>
 
     <script>
-        // JS para el funcionamiento básico
         let timeLeft = 25 * 60;
-        let running = false;
-        let timerId;
+        let timerId = null;
+
+        function updateDisplay() {
+            const m = Math.floor(timeLeft / 60);
+            const s = timeLeft % 60;
+            document.getElementById('timer').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
 
         function toggleTimer() {
-            if (running) {
+            const btn = document.getElementById('mainBtn');
+            if (timerId) {
                 clearInterval(timerId);
-                document.getElementById('btnStart').textContent = "Reanudar";
+                timerId = null;
+                btn.innerText = "Reanudar Sesión";
+                btn.style.background = "#10b981";
             } else {
+                btn.innerText = "Pausar";
+                btn.style.background = "#ef4444";
                 timerId = setInterval(() => {
-                    timeLeft--;
-                    let mins = Math.floor(timeLeft / 60);
-                    let secs = timeLeft % 60;
-                    document.getElementById('timer').textContent = 
-                        `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-                    if (timeLeft <= 0) clearInterval(timerId);
+                    if(timeLeft > 0) {
+                        timeLeft--;
+                        updateDisplay();
+                    } else {
+                        clearInterval(timerId);
+                        alert("Sesión de enfoque completada. Es momento de un breve descanso.");
+                    }
                 }, 1000);
-                document.getElementById('btnStart').textContent = "Pausar";
             }
-            running = !running;
         }
 
         function resetTimer() {
             clearInterval(timerId);
+            timerId = null;
             timeLeft = 25 * 60;
-            document.getElementById('timer').textContent = "25:00";
-            document.getElementById('btnStart').textContent = "Iniciar Sesión";
-            running = false;
+            updateDisplay();
+            const btn = document.getElementById('mainBtn');
+            btn.innerText = "Iniciar Sesión";
+            btn.style.background = "#6366f1";
         }
     </script>
 </body>
